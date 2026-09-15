@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>TAURUS • PRO v18.0</title>
-
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
 
@@ -137,7 +136,7 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
 .timer-line { font-size: 14px; color: #8ad8e8; font-weight: 700; margin-top: 10px; }
 .timer-line b { color: #ff3355; font-family: monospace; }
 
-/* ⭐⭐⭐⭐⭐ شاشة الدخول الناجح - احترافية */
+/* ============ شاشة الترحيب ============ */
 .welcome-box { 
   background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(100,255,180,0.06)); 
   border: 1.5px solid rgba(0,229,255,0.4); 
@@ -160,7 +159,6 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
-/* ⭐ علامة الصح - أنيميشن احترافي */
 .welcome-check {
   width: 90px;
   height: 90px;
@@ -234,332 +232,449 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
 }
 
 /* ============================================================
-   شاشة النتائج
+   ⭐⭐⭐ شاشة النتائج - الدائرة الاحترافية
    ============================================================ */
-.result-wrap { display: flex; flex-direction: column; gap: 14px; }
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
 
-/* كارت الدائرة */
-.orb-card {
-  background: linear-gradient(180deg, #0a1e2a 0%, #0d2432 100%);
-  border: 1px solid #1a4050;
-  border-radius: 22px;
-  padding: 24px 16px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.6), inset 0 0 60px rgba(0,229,255,0.05);
-}
-.orb-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 45%, rgba(0,229,255,0.15) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.orb-wrap {
-  position: relative;
-  width: 290px;
-  height: 290px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.orb-svg {
-  position: absolute;
-  inset: 0;
+#resultScreen {
   width: 100%;
-  height: 100%;
+  font-family: 'Cairo', Arial, sans-serif;
 }
 
-/* ⭐⭐⭐ أنيميشن الجزيئات - أشكال غريبة زي الصورة */
-.orb-svg .p-dot {
-  animation: dotGlow 1.8s ease-in-out infinite;
-}
-.orb-svg .p-dot:nth-child(3n) { animation-delay: 0.4s; animation-duration: 2.3s; }
-.orb-svg .p-dot:nth-child(5n) { animation-delay: 0.9s; animation-duration: 1.5s; }
-.orb-svg .p-dot:nth-child(7n) { animation-delay: 1.3s; animation-duration: 2.7s; }
-.orb-svg .p-dot:nth-child(11n) { animation-delay: 0.2s; animation-duration: 2s; }
-@keyframes dotGlow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-.orb-svg .p-rect {
-  animation: rectGlow 2.2s ease-in-out infinite;
-}
-.orb-svg .p-rect:nth-child(4n) { animation-delay: 0.6s; animation-duration: 1.9s; }
-.orb-svg .p-rect:nth-child(6n) { animation-delay: 1.1s; animation-duration: 2.8s; }
-@keyframes rectGlow {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.95; }
-}
-
-/* حلقات خارجية دوارة */
-.orb-halo {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(0,229,255,0.2);
-  pointer-events: none;
-  z-index: 1;
-}
-.orb-halo.h1 {
-  width: 260px;
-  height: 260px;
-  border-style: dashed;
-  border-color: rgba(0,229,255,0.25);
-  animation: haloSpin 30s linear infinite;
-}
-.orb-halo.h2 {
-  width: 240px;
-  height: 240px;
-  border-color: rgba(100,255,180,0.15);
-  animation: haloSpin 20s linear infinite reverse;
-}
-@keyframes haloSpin {
-  to { transform: rotate(360deg); }
-}
-
-.orb-center {
-  position: relative;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, rgba(5,25,35,0.9) 75%);
-  border: 1.5px solid rgba(0,229,255,0.4);
-  box-shadow: 
-    inset 0 0 60px rgba(0,229,255,0.25),
-    0 0 80px rgba(0,229,255,0.35),
-    0 0 120px rgba(0,229,255,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  animation: centerPulse 3s ease-in-out infinite;
-}
-@keyframes centerPulse {
-  0%,100% { box-shadow: inset 0 0 60px rgba(0,229,255,0.25), 0 0 80px rgba(0,229,255,0.35), 0 0 120px rgba(0,229,255,0.15); }
-  50% { box-shadow: inset 0 0 70px rgba(0,229,255,0.4), 0 0 100px rgba(0,229,255,0.5), 0 0 150px rgba(0,229,255,0.25); }
-}
-.orb-value {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  line-height: 1;
-}
-.orb-value .x-mark {
-  font-size: 36px;
-  font-weight: 900;
-  color: #fff;
-  text-shadow: 0 0 30px rgba(255,255,255,0.9), 0 0 50px rgba(0,229,255,0.9);
-  margin-right: -2px;
-}
-.orb-value .num {
-  font-size: 68px;
-  font-weight: 900;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  letter-spacing: -3px;
-  text-shadow: 
-    0 0 30px rgba(255,255,255,0.85),
-    0 0 60px rgba(0,229,255,0.9),
-    0 0 90px rgba(0,229,255,0.5);
-  transition: transform 0.3s;
-}
-.orb-value.bump .num { transform: scale(1.12); }
-
-/* كارت ID - بأيقونة بصمة زي ما كان بدري */
-.info-card {
-  background: linear-gradient(135deg, #0a1e2a 0%, #0e2838 100%);
-  border: 1px solid #1a4050;
-  border-radius: 18px;
-  padding: 18px 20px;
+/* ================= HEADER ================= */
+.top-header {
+  width: 100%;
+  height: 64px;
+  border-bottom: 1px solid #175a70;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
+  padding: 8px 12px;
+  gap: 8px;
+  direction: ltr;
+  background: rgba(5,10,25,0.6);
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
-.info-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, #00e5ff, #64ffb4);
-  box-shadow: 0 0 12px #00e5ff;
-}
-.info-card-left { flex: 1; min-width: 0; text-align: right; }
-.info-card-label {
-  font-size: 11px;
-  color: #5a8a9a;
-  letter-spacing: 3px;
+.top-header .language {
+  height: 44px;
+  min-width: 100px;
+  border: 1px solid #55536d;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #302e3e, #171624);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 13px;
   font-weight: 700;
-  font-family: 'Courier New', monospace;
-  margin-bottom: 6px;
+  direction: rtl;
+  color: #fff;
+  padding: 0 12px;
 }
-.info-card-value {
-  font-size: 22px;
-  font-weight: 900;
-  color: #00e5ff;
+.top-header .flag { font-size: 18px; line-height: 1; }
+.top-header .telegram {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #08a9ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(8,169,237,0.5);
+  text-decoration: none;
+}
+.top-header .telegram svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  margin-right: -3px;
+}
+.top-header .date {
+  font-size: 12px;
+  font-weight: 700;
+  direction: rtl;
+  white-space: nowrap;
+  text-align: left;
+  flex: 1;
   font-family: 'Courier New', monospace;
-  letter-spacing: 3px;
-  text-shadow: 0 0 12px rgba(0,229,255,0.6);
+  letter-spacing: 0.3px;
+}
+.top-header .date .green { color: #00f2b9; }
+.top-header .date .yellow { color: #ffe02b; }
+.top-header .date .orange { color: #ff7234; }
+
+/* ================= MAIN CONTAINER ================= */
+#resultScreen .container {
+  width: 100%;
+  margin: 0 auto 16px;
+  padding: 16px 14px 14px;
+  border-radius: 28px;
+  border: 1px solid #46416c;
+  background:
+    radial-gradient(circle at 50% 30%, #2a2c52 0%, transparent 55%),
+    linear-gradient(145deg, #1e1c3a, #2a2750);
+  box-shadow:
+    0 0 35px #08071780,
+    inset 0 0 35px #514b9820;
+  position: relative;
+}
+
+/* ⭐⭐⭐ الدائرة الاحترافية */
+#resultScreen .circle-area {
+  width: 100%;
+  padding: 20px 0 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#resultScreen .circle-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  transition: transform 0.3s ease;
+}
+
+/* ⭐ توهج خلفي مزرق داكن */
+#resultScreen .circle-container::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a4a5c 0%, #0d2a3e 40%, transparent 75%);
+  filter: blur(30px);
+  z-index: 0;
+}
+
+/* ⭐ الحلقات المنقطة */
+#resultScreen .dotted-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dotted #00f5d4;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(0,245,212,0.8));
+}
+
+#resultScreen .ring-inner {
+  width: 55%;
+  height: 55%;
+  animation: rotateClockwise 35s linear infinite;
+  opacity: 0.9;
+}
+
+#resultScreen .ring-middle {
+  width: 75%;
+  height: 75%;
+  animation: rotateReverse 28s linear infinite;
+  opacity: 0.75;
+}
+
+#resultScreen .ring-outer {
+  width: 95%;
+  height: 95%;
+  animation: rotateClockwise 45s linear infinite;
+  opacity: 0.6;
+}
+
+/* ⭐ حلقات النقط المضيئة */
+#resultScreen .particle-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#resultScreen .pr-1 { width: 78%; height: 78%; animation: rotateClockwise 40s linear infinite; }
+#resultScreen .pr-2 { width: 95%; height: 95%; animation: rotateReverse 32s linear infinite; }
+#resultScreen .pr-3 { width: 112%; height: 112%; animation: rotateClockwise 50s linear infinite; }
+
+#resultScreen .particle-ring span {
+  position: absolute;
+  border-radius: 50%;
+  background: #00ffd5;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 6px #00ffd5,
+    0 0 12px #00f5d4,
+    0 0 20px rgba(0,245,212,0.5);
+  animation: blinkDot 2.2s ease-in-out infinite;
+}
+
+#resultScreen .particle-ring span.small {
+  width: 2px; height: 2px;
+  box-shadow: 0 0 4px #00ffd5, 0 0 8px #00f5d4;
+}
+
+#resultScreen .particle-ring span.big {
+  width: 5px; height: 5px;
+  box-shadow: 
+    0 0 10px #00ffd5,
+    0 0 18px #00f5d4,
+    0 0 28px rgba(0,245,212,0.5);
+}
+
+/* ⭐ الرقم في المنتصف */
+#resultScreen .multiplier {
+  position: relative;
+  z-index: 10;
+  direction: ltr;
+  font-family: 'Orbitron', monospace;
+  font-size: 34px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 
+    0 0 15px rgba(255,255,255,0.5),
+    0 0 30px rgba(0,245,212,0.5),
+    0 0 50px rgba(0,245,212,0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  line-height: 1;
+}
+
+#resultScreen .multiplier.bump {
+  animation: bumpPop 0.4s ease-out;
+}
+
+@keyframes bumpPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ⭐ اهتزاز الدائرة عند تحديث الرقم */
+#resultScreen .circle-container.shaking {
+  animation: circleShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes circleShake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-4px, -2px) rotate(-1deg); }
+  20% { transform: translate(4px, 2px) rotate(1deg); }
+  30% { transform: translate(-5px, 3px) rotate(-1.5deg); }
+  40% { transform: translate(5px, -3px) rotate(1.5deg); }
+  50% { transform: translate(-4px, 2px) rotate(-1deg); }
+  60% { transform: translate(4px, -2px) rotate(1deg); }
+  70% { transform: translate(-3px, 1px) rotate(-0.5deg); }
+  80% { transform: translate(3px, -1px) rotate(0.5deg); }
+  90% { transform: translate(-2px, 1px) rotate(0deg); }
+}
+
+/* ⭐ حركات الدوران */
+@keyframes rotateClockwise {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes blinkDot {
+  0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.6); }
+  40% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  70% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ================= INFO CARDS ================= */
+#resultScreen .info-card {
+  min-height: 76px;
+  border: 1px solid #0d7a7e;
+  border-radius: 40px;
+  background: linear-gradient(110deg, #10162e, #161b38);
+  margin-top: 11px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  box-shadow: inset 0 0 20px #050a1d30;
+  gap: 12px;
+}
+
+#resultScreen .account-text {
+  direction: ltr;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+#resultScreen .account-number {
+  color: #00f5d4;
+  font-family: 'Cairo', Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.info-card-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid #00e5ff;
-  background: rgba(0,229,255,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 22px rgba(0,229,255,0.4), inset 0 0 15px rgba(0,229,255,0.15);
-}
-.info-card-icon svg {
-  width: 30px; height: 30px;
-  stroke: #00e5ff;
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 0 6px #00e5ff);
+  text-shadow: 0 0 8px rgba(0,245,212,0.5);
 }
 
-/* كارت 1xBet */
-.platform-card {
-  background: linear-gradient(135deg, #0a1e2a 0%, #0e2838 100%);
-  border: 1px solid #1a4050;
-  border-radius: 18px;
-  padding: 14px 16px;
+#resultScreen .account-label {
+  color: #9a99ab;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Cairo', Arial, sans-serif;
+}
+
+/* بصمة */
+#resultScreen .fingerprint {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid #0d7a7e;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(0,245,212,0.04);
+  box-shadow: 0 0 15px rgba(0,245,212,0.2), inset 0 0 12px rgba(0,245,212,0.06);
 }
-.platform-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, #00e5ff, #64ffb4);
-  box-shadow: 0 0 12px #00e5ff;
+
+#resultScreen .fingerprint svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #00f5d4;
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px #00f5d4);
 }
-.platform-logo-wrap {
-  width: 60px;
-  height: 60px;
+
+/* الشركة */
+#resultScreen .company-name {
+  font-size: 19px;
+  font-weight: 800;
+  direction: ltr;
+  color: #fff;
+  font-family: 'Cairo', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+#resultScreen .active {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #31d78a;
+  font-size: 13px;
+  font-weight: 700;
+  direction: ltr;
+  margin-top: 4px;
+  letter-spacing: 1.5px;
+  font-family: 'Cairo', Arial, sans-serif;
+}
+
+#resultScreen .active::before {
+  content: "";
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  border: 2px solid #00e5ff;
-  background: #0d1a2e;
+  background: #31d78a;
+  box-shadow: 0 0 8px #31d78a;
+  animation: pulse 1.5s infinite;
+}
+
+#resultScreen .logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid #0d7a7e;
+  background: #0d1d3d;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  box-shadow: 
-    0 0 22px rgba(0,229,255,0.6),
-    inset 0 0 15px rgba(0,229,255,0.2);
-  position: relative;
+  box-shadow: 0 0 15px rgba(0,229,255,0.35), inset 0 0 12px rgba(0,229,255,0.1);
   animation: logoPulse 3s ease-in-out infinite;
+  position: relative;
 }
+
 @keyframes logoPulse {
-  0%,100% { box-shadow: 0 0 22px rgba(0,229,255,0.6), inset 0 0 15px rgba(0,229,255,0.2); }
-  50% { box-shadow: 0 0 35px rgba(0,229,255,0.9), inset 0 0 25px rgba(0,229,255,0.3); }
+  0%,100% { box-shadow: 0 0 15px rgba(0,229,255,0.35), inset 0 0 12px rgba(0,229,255,0.1); }
+  50% { box-shadow: 0 0 22px rgba(0,229,255,0.7), inset 0 0 16px rgba(0,229,255,0.18); }
 }
-.platform-logo-wrap img {
+
+#resultScreen .logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
-.platform-logo-fallback {
-  font-size: 11px;
-  font-weight: 900;
-  color: #00e5ff;
-  font-family: Arial, sans-serif;
-  letter-spacing: 0.5px;
-}
-.platform-right { text-align: right; flex: 1; }
-.platform-name {
-  font-size: 22px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
-.platform-status {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 6px;
-  font-size: 12px;
-  color: #64ffb4;
-  font-weight: 700;
-  letter-spacing: 3px;
-  font-family: 'Courier New', monospace;
-}
-.platform-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #64ffb4;
-  box-shadow: 0 0 10px #64ffb4;
-  animation: pulse 1.5s infinite;
+
+#resultScreen .logo-fallback {
+  color: #00bde8;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: center;
+  direction: ltr;
 }
 
-/* كارت الوقت */
-.timer-card {
-  background: linear-gradient(135deg, #0a1e2a 0%, #0e2838 100%);
-  border: 1px solid #1a4050;
-  border-radius: 18px;
-  padding: 20px 20px 18px;
-  position: relative;
-  overflow: hidden;
-}
-.timer-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, #00e5ff, #64ffb4);
-  box-shadow: 0 0 12px #00e5ff;
-}
-.timer-label {
+/* ================= TIMER ================= */
+#resultScreen .timer-card {
+  margin-top: 11px;
+  border: 1px solid #0d7a7e;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #242a4d, #1a2340);
+  min-height: 120px;
+  padding: 18px 24px 20px;
   text-align: center;
+}
+
+#resultScreen .timer-title {
   font-size: 15px;
-  color: #a0c8d8;
-  margin-bottom: 12px;
-  font-weight: 700;
+  font-weight: 600;
+  color: #d0d5e8;
+  font-family: 'Cairo', Arial, sans-serif;
+  letter-spacing: 0.3px;
 }
-.timer-value {
-  text-align: center;
-  font-size: 46px;
-  font-weight: 900;
-  color: #00e5ff;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 5px;
-  text-shadow: 0 0 25px rgba(0,229,255,0.8);
-  line-height: 1;
-  margin-bottom: 16px;
+
+#resultScreen .timer {
+  direction: ltr;
+  font-family: 'Orbitron', 'Cairo', Arial, sans-serif;
+  color: #00f5d4;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 8px;
+  text-shadow: 0 0 12px #00f5d435;
+  letter-spacing: 2px;
 }
-.timer-bar {
+
+#resultScreen .progress {
+  height: 4px;
   width: 100%;
-  height: 6px;
-  background: rgba(0,20,35,0.9);
-  border-radius: 3px;
+  background: rgba(0,20,35,0.8);
+  border-radius: 20px;
+  margin-top: 14px;
   overflow: hidden;
+  position: relative;
 }
-.timer-bar-fill {
+
+#resultScreen .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #00e5ff, #64ffb4);
-  border-radius: 3px;
-  box-shadow: 0 0 12px #00e5ff;
+  width: 99%;
+  background: #00f5d4;
+  border-radius: 20px;
+  box-shadow: 0 0 8px #00f5d4;
   transition: width 1s linear;
 }
 
@@ -579,17 +694,6 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
   background: rgba(0,30,35,0.95); color: #00e5ff;
   border: 1px solid #00e5ff;
 }
-
-#reloadOverlay {
-  position: fixed; inset: 0; background: rgba(4,3,10,0.95);
-  display: none; flex-direction: column; justify-content: center;
-  align-items: center; z-index: 1500;
-}
-#reloadOverlay.show { display: flex; }
-.reload-text { color: #00e5ff; font-size: 14px; margin-top: 18px; font-family: 'Courier New', monospace; }
-.reload-progress-track { width: 240px; height: 6px; background: rgba(0,20,25,0.9); border: 1px solid rgba(0,229,255,0.4); border-radius: 2px; overflow: hidden; margin-top: 20px; }
-.reload-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #00e5ff, #64ffb4); transition: width 0.15s linear; }
-.reload-pct { color: #00e5ff; font-family: 'Courier New', monospace; font-size: 12px; margin-top: 10px; }
 
 .error-screen-box { background: rgba(255,51,85,0.08); border: 1.5px solid rgba(255,51,85,0.5); border-radius: 6px; padding: 30px 20px; text-align: center; margin-bottom: 18px; }
 .error-icon { font-size: 60px; margin-bottom: 14px; animation: shake 0.6s; }
@@ -760,7 +864,6 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
     </div>
   </div>
 
-  <!-- ⭐ شاشة الترحيب الجديدة -->
   <div id="welcomeScreen" style="display:none;">
     <div class="welcome-box">
       <div class="welcome-check">
@@ -777,83 +880,89 @@ a.link { color: #2196f3; text-decoration: none; font-weight: 700; }
     </button>
   </div>
 
-  <!-- ============ شاشة النتائج ============ -->
+  <!-- ============ شاشة النتائج (الدائرة الاحترافية + الاهتزاز) ============ -->
   <div id="resultScreen" style="display:none;">
-    <div class="result-wrap">
-
-      <!-- كارت الدائرة -->
-      <div class="orb-card">
-        <div class="orb-wrap">
-          <div class="orb-halo h1"></div>
-          <div class="orb-halo h2"></div>
-          <svg class="orb-svg" viewBox="0 0 290 290">
-            <g id="particlesGroup"></g>
-          </svg>
-          <div class="orb-center">
-            <div class="orb-value" id="livePrediction">
-              <span class="x-mark">x</span>
-              <span class="num">1.00</span>
-            </div>
-          </div>
-        </div>
+    
+    <div class="top-header">
+      <div class="language">
+        <span class="flag">🇲🇦</span>
+        <span>العربية</span>
       </div>
+      <a class="telegram" href="https://t.me/betrScripts" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      </a>
+      <div class="date">
+        <span class="green" id="headerDate">2026/09/15</span>
+        <span> - </span>
+        <span class="yellow" id="headerDay">الإثنين</span>
+        <span> | </span>
+        <span class="orange" id="headerClock">16:00:00</span>
+      </div>
+    </div>
 
-      <!-- كارت ID بأيقونة بصمة -->
+    <div class="container">
+
+      <!-- ✅ الدائرة الاحترافية -->
+      <section class="circle-area">
+        <div class="circle-container" id="circleContainer">
+          <div class="dotted-ring ring-inner"></div>
+          <div class="dotted-ring ring-middle"></div>
+          <div class="dotted-ring ring-outer"></div>
+
+          <div class="particle-ring pr-1" id="pr1"></div>
+          <div class="particle-ring pr-2" id="pr2"></div>
+          <div class="particle-ring pr-3" id="pr3"></div>
+
+          <div class="multiplier" id="livePrediction">1.00x</div>
+        </div>
+      </section>
+
       <div class="info-card">
-        <div class="info-card-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 10c-1.1 0-2 .9-2 2v3c0 1.1.9 2 2 2s2-.9 2-2v-3c0-1.1-.9-2-2-2z"/>
-            <path d="M12 14v6"/>
-            <path d="M7 15c0-2.8 2.2-5 5-5s5 2.2 5 5"/>
-            <path d="M4 15c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
-            <path d="M4 20h16"/>
-          </svg>
+        <div class="account-text">
+          <div class="account-number" id="resultId">------------</div>
+          <div class="account-label">ACCOUNT ID</div>
         </div>
-        <div class="info-card-left">
-          <div class="info-card-label">ACCOUNT ID</div>
-          <div class="info-card-value" id="resultId">------------</div>
+        <div class="fingerprint">
+          <svg viewBox="0 0 64 64">
+            <path d="M20 28 C20 12 44 12 44 28"/>
+            <path d="M15 30 C15 8 49 8 49 30"/>
+            <path d="M25 31 C25 21 39 21 39 31"/>
+            <path d="M25 31 L25 43 C25 50 20 51 20 57"/>
+            <path d="M32 31 L32 48 C32 55 28 59 28 62"/>
+            <path d="M39 31 L39 43 C39 51 44 54 44 60"/>
+            <path d="M15 38 C15 50 11 54 11 59"/>
+            <path d="M49 38 C49 48 54 53 54 58"/>
+          </svg>
         </div>
       </div>
 
-      <!-- كارت 1xBet -->
-      <div class="platform-card">
-        <div class="platform-logo-wrap">
+      <div class="info-card">
+        <div class="account-text">
+          <div class="company-name">1xBet</div>
+          <div class="active">ACTIVE</div>
+        </div>
+        <div class="logo">
           <img 
             id="platformLogo"
             src="https://raw.githubusercontent.com/turbo1-2/my-images/refs/heads/main/Screenshot_%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A9%D9%A1%D9%A4-%D9%A1%D9%A6%D9%A2%D9%A8%D9%A1%D9%A9_Telegram.jpg" 
             alt="1XBET"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           >
-          <span class="platform-logo-fallback" style="display:none;">1XBET</span>
-        </div>
-        <div class="platform-right">
-          <div class="platform-name">1xBet</div>
-          <div class="platform-status">
-            <span class="platform-dot"></span>
-            ACTIVE
-          </div>
+          <span class="logo-fallback" style="display:none;">1XBET</span>
         </div>
       </div>
 
-      <!-- كارت الوقت -->
       <div class="timer-card">
-        <div class="timer-label">الوقت المتبقي من الكود</div>
-        <div class="timer-value" id="mainTimerDisplay">00:59:56</div>
-        <div class="timer-bar">
-          <div class="timer-bar-fill" id="mainTimerBar" style="width: 99%;"></div>
+        <div class="timer-title">الوقت المتبقي من الكود</div>
+        <div class="timer" id="mainTimerDisplay">00:59:56</div>
+        <div class="progress">
+          <div class="progress-fill" id="mainTimerBar" style="width: 99%;"></div>
         </div>
       </div>
 
     </div>
   </div>
 
-</div>
-
-<div id="reloadOverlay">
-  <div style="width:44px;height:44px;border:4px solid #0a1a20;border-top-color:#00e5ff;border-radius:50%;animation:spin .9s linear infinite;"></div>
-  <div class="reload-text" id="reloadText">LOADING</div>
-  <div class="reload-progress-track"><div class="reload-progress-fill" id="reloadProgress"></div></div>
-  <div class="reload-pct" id="reloadPct">0%</div>
 </div>
 
 <div id="toast"></div>
@@ -875,60 +984,6 @@ const firebaseConfig={
 const fbApp=initializeApp(firebaseConfig);
 const fbDb=getDatabase(fbApp);
 
-/* ⭐⭐⭐⭐⭐ الجزيئات - نفس الصورة بالظبط */
-function buildParticles() {
-  const group = document.getElementById("particlesGroup");
-  if(!group) return;
-  group.innerHTML = "";
-
-  const CX = 145, CY = 145;
-
-  const layers = [
-    { radius: 92, count: 120, minSize: 0.5, maxSize: 0.9, color: "#00e5ff", opacity: 0.9, shape: "dot" },
-    { radius: 112, count: 70, minSize: 0.8, maxSize: 1.6, color: "#00e5ff", opacity: 0.75, shape: "mix" },
-    { radius: 130, count: 50, minSize: 1.2, maxSize: 2.5, color: "#00e5ff", opacity: 0.6, shape: "dot" },
-    { radius: 142, count: 35, minSize: 1.5, maxSize: 3, color: "#64ffb4", opacity: 0.5, shape: "rect" }
-  ];
-
-  layers.forEach((layer) => {
-    for (let i = 0; i < layer.count; i++) {
-      const angle = (i / layer.count) * Math.PI * 2 + Math.random() * 0.6;
-      const r = layer.radius + (Math.random() - 0.5) * 12;
-      const x = CX + Math.cos(angle) * r;
-      const y = CY + Math.sin(angle) * r;
-
-      const size = layer.minSize + Math.random() * (layer.maxSize - layer.minSize);
-      const useRect = layer.shape === "rect" || (layer.shape === "mix" && Math.random() > 0.6);
-      
-      if(useRect) {
-        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        const width = size * (2 + Math.random() * 2.5);
-        const height = Math.max(1, size * 0.7);
-        rect.setAttribute("x", (x - width/2).toFixed(1));
-        rect.setAttribute("y", (y - height/2).toFixed(1));
-        rect.setAttribute("width", width.toFixed(1));
-        rect.setAttribute("height", height.toFixed(1));
-        rect.setAttribute("rx", (height/2).toFixed(1));
-        rect.setAttribute("fill", layer.color);
-        rect.setAttribute("opacity", (layer.opacity * (0.4 + Math.random() * 0.6)).toFixed(2));
-        rect.setAttribute("class", "p-rect");
-        rect.setAttribute("transform", `rotate(${(angle * 180 / Math.PI).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})`);
-        group.appendChild(rect);
-      } else {
-        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        dot.setAttribute("cx", x.toFixed(1));
-        dot.setAttribute("cy", y.toFixed(1));
-        dot.setAttribute("r", size.toFixed(2));
-        dot.setAttribute("fill", layer.color);
-        dot.setAttribute("opacity", (layer.opacity * (0.4 + Math.random() * 0.6)).toFixed(2));
-        dot.setAttribute("class", "p-dot");
-        group.appendChild(dot);
-      }
-    }
-  });
-}
-
-/* ⭐⭐⭐⭐⭐ التوقع من Firebase */
 onValue(ref(fbDb, "demoRounds/current"), (snap) => {
   if(!snap.exists()) return;
   const data = snap.val();
@@ -938,17 +993,65 @@ onValue(ref(fbDb, "demoRounds/current"), (snap) => {
   console.error("Firebase error", err);
 });
 
+/* ⭐ تحديث الرقم مع اهتزاز الدائرة */
 function updatePredictionUI(value) {
   const el = document.getElementById("livePrediction");
-  if(!el) return;
-  el.innerHTML = `<span class="x-mark">x</span><span class="num">${value}</span>`;
-  el.classList.add("bump");
-  setTimeout(()=>{ el.classList.remove("bump"); }, 300);
+  const circle = document.getElementById("circleContainer");
+  if (!el) return;
+  
+  // لو الرقم نفسه مش متغير، متعملش حاجة
+  if (el.textContent === value + 'x') return;
+
+  // 1. اخفي الرقم الحالي
+  el.style.opacity = "0";
+  el.style.transform = "scale(0.7)";
+
+  // 2. شغّل اهتزاز الدائرة
+  if (circle) {
+    circle.classList.add("shaking");
+  }
+
+  // 3. بعد الاهتزاز، اعرض الرقم الجديد
+  setTimeout(() => {
+    el.textContent = value + 'x';
+    el.style.opacity = "1";
+    el.style.transform = "scale(1)";
+    el.classList.add("bump");
+    
+    if (circle) {
+      circle.classList.remove("shaking");
+    }
+    
+    setTimeout(() => { 
+      el.classList.remove("bump"); 
+    }, 400);
+  }, 500);
 }
 
-window.addEventListener("load", () => {
-  setTimeout(buildParticles, 500);
-});
+/* الساعة والتاريخ */
+function updateHeaderDateTime() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const dateStr = `${year}/${month}/${day}`;
+  const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const dayName = days[now.getDay()];
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const clockStr = `${hours}:${minutes}:${seconds}`;
+  
+  const dateEl = document.getElementById('headerDate');
+  const dayEl = document.getElementById('headerDay');
+  const clockEl = document.getElementById('headerClock');
+  if(dateEl) dateEl.textContent = dateStr;
+  if(dayEl) dayEl.textContent = dayName;
+  if(clockEl) clockEl.textContent = clockStr;
+}
+
+setInterval(updateHeaderDateTime, 1000);
+updateHeaderDateTime();
 </script>
 
 <script>
@@ -1204,105 +1307,92 @@ $('verifyBtn').addEventListener('click', () => {
     if (step >= vhSteps.length) {
       setTimeout(() => {
         $('verifyBox').style.display = 'none';
+        const code = 'TRS' + Math.floor(1000 + Math.random() * 9000);
+        $('codeDisplay').textContent = code;
         $('codeBox').style.display = 'block';
         hasCode = true;
-        startCodeTimer();
-      }, 700);
+
+        let t = 300;
+        $('timerDisplay').textContent = '05:00';
+        clearInterval(countdownInterval);
+        countdownInterval = setInterval(() => {
+          t--;
+          const m = String(Math.floor(t / 60)).padStart(2, '0');
+          const s = String(t % 60).padStart(2, '0');
+          $('timerDisplay').textContent = m + ':' + s;
+          if (t <= 0) clearInterval(countdownInterval);
+        }, 1000);
+      }, 500);
       return;
     }
-    const s = vhSteps[step];
-    $('vhProgressFill').style.width = s.pct + '%';
-    $('vhProgressText').textContent = '[ ' + s.pct + '% ]';
+    const st = vhSteps[step];
+    $('vhProgressFill').style.width = st.pct + '%';
+    $('vhProgressText').textContent = '[ ' + st.pct + '% ]';
+    $('vhStatus').textContent = st.status;
     $('vhStepText').textContent = 'STEP ' + (step + 1) + '/' + vhSteps.length;
-    $('vhStatus').textContent = s.status;
-    addLog(s.log);
+    addLog(st.log);
     step++;
-    setTimeout(runStep, 700 + Math.random() * 400);
+    setTimeout(runStep, 700 + Math.random() * 500);
   };
-  setTimeout(runStep, 500);
+  runStep();
 });
 
-function generateCode() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = '';
-  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
-  return code;
-}
-
-function startCodeTimer() {
-  clearInterval(codeInterval);
-  clearInterval(countdownInterval);
-  const codeDisplay = $('codeDisplay');
-  const timerDisplay = $('timerDisplay');
-  const refreshCode = () => {
-    codeDisplay.textContent = generateCode();
-    let remaining = 300;
-    clearInterval(countdownInterval);
-    countdownInterval = setInterval(() => {
-      remaining--;
-      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-      const s = String(remaining % 60).padStart(2, '0');
-      timerDisplay.textContent = m + ':' + s;
-      if (remaining <= 0) { clearInterval(countdownInterval); refreshCode(); }
-    }, 1000);
-  };
-  refreshCode();
-  codeInterval = setInterval(refreshCode, 300000);
-}
-
 $('quickLoginBtn').addEventListener('click', () => {
-  clearInterval(codeInterval);
-  clearInterval(countdownInterval);
-  const savedId = localStorage.getItem('lastId') || currentId || '';
-  const savedPass = localStorage.getItem('savedPass') || '';
-  const idField = $('loginId');
-  const passField = $('loginPass');
-  let finalPass = savedPass;
-  if (!finalPass) {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let temp = '';
-    for (let i = 0; i < 8; i++) temp += chars[Math.floor(Math.random() * chars.length)];
-    finalPass = temp;
-  }
-  idField.value = savedId;
-  passField.value = finalPass;
-  idField.classList.add('autofilled');
-  passField.classList.add('autofilled');
-  setTimeout(() => {
-    idField.classList.remove('autofilled');
-    passField.classList.remove('autofilled');
-  }, 4200);
-  showScreen('loginScreen');
-  showToast('تم تعبئة البيانات ✓', true);
+  showWelcome(currentId || '0000000000');
+});
+
+$('continueBtn').addEventListener('click', () => {
+  const id = localStorage.getItem('lastId') || localStorage.getItem('savedId') || currentId || '0000000000';
+  $('resultId').textContent = id;
+  showScreen('resultScreen');
+  startMainTimer();
+  setTimeout(createAllParticles, 300);
 });
 
 function showWelcome(id) {
   showScreen('welcomeScreen');
-  // ⭐ إعادة تشغيل الأنيميشن في كل مرة
-  const check = document.querySelector('.welcome-check');
-  const title = document.querySelector('.welcome-title');
-  const sub = $('welcomeSub');
-  if(check) { check.style.animation = 'none'; setTimeout(()=>{ check.style.animation = 'checkPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'; }, 10); }
-  if(title) { title.style.animation = 'none'; setTimeout(()=>{ title.style.animation = 'fadeInUp 0.5s 0.8s forwards'; }, 10); }
-  sub.style.animation = 'none';
-  setTimeout(()=>{ sub.style.animation = 'fadeInUp 0.5s 1.1s forwards'; }, 10);
-  
-  sub.textContent = 'جاري تهيئة الجلسة';
-  setTimeout(() => { sub.textContent = 'تم التحقق من الجلسة بنجاح'; }, 1200);
-  setTimeout(() => { sub.textContent = 'الجلسة آمنة ✓'; }, 2400);
+  setTimeout(() => {
+    $('welcomeSub').textContent = 'الحساب: ' + id;
+  }, 300);
 }
 
-$('continueBtn').addEventListener('click', () => {
-  const id = localStorage.getItem('savedId') || currentId;
-  showResult(id);
-});
+/* ⭐ توليد النقط المضيئة */
+function createAllParticles() {
+  createParticles("pr1", 55, 50);
+  createParticles("pr2", 70, 50);
+  createParticles("pr3", 90, 50);
+}
 
-function showResult(id) {
-  $('resultId').textContent = id;
-  showScreen('resultScreen');
-  startMainTimer();
-  setTimeout(buildParticles, 100);
+function createParticles(id, count, radius) {
+  const container = document.getElementById(id);
+  if (!container) return;
+  container.innerHTML = "";
+
+  const spread = 8;
+
+  for (let i = 0; i < count; i++) {
+    const dot = document.createElement("span");
+    const angle = (360 / count) * i + Math.random() * 5;
+    const radian = angle * Math.PI / 180;
+    
+    const dist = radius - spread + Math.random() * spread;
+    const x = 50 + Math.cos(radian) * dist;
+    const y = 50 + Math.sin(radian) * dist;
+
+    dot.style.left = x + "%";
+    dot.style.top = y + "%";
+
+    if (i % 3 === 0) {
+      dot.classList.add("big");
+    } else {
+      dot.classList.add("small");
+    }
+
+    dot.style.animationDelay = (Math.random() * 2.5).toFixed(2) + "s";
+    container.appendChild(dot);
+  }
 }
 </script>
+
 </body>
 </html>
